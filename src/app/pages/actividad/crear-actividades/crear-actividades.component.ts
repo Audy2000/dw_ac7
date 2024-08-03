@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ActividadesService } from '../../../core/services/actividades.service';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { Materia } from '../../../core/models/materia';
 import { TipoActividad } from '../../../core/models/tipo-actividad';
@@ -23,7 +23,8 @@ export class CrearActividadesComponent {
   constructor(
     private service:ActividadesService,
     private matService : MateriaService,
-    private tipoService:TipoActividadService
+    private tipoService:TipoActividadService,
+    private roouter: Router
     ){}
 
   ngOnInit()
@@ -56,9 +57,9 @@ export class CrearActividadesComponent {
   {
     console.log(this.formulario.value);
     this.service.add(this.formulario.value as Actividad)
-    .subscribe(data => {
-      console.log(data);
+    .subscribe(() => {
       
+      this.roouter.navigate(['/actividad/listar-actividades'])
     })
   }
 }

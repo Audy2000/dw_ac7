@@ -1,1 +1,130 @@
-<p>editar-actividades works!</p>
+<h2 class="text-center">Ingreso de Actividades</h2>
+<div class="row">
+    <div class="col">
+        
+
+        <form [formGroup]="formulario">
+
+            <div class="mb-3">
+                <label for="codigo" class="form-label">Codigo</label>
+                <input
+                    formControlName="codigo"
+                    type="text"
+                    class="form-control"
+                    name="codigo"
+                    id="codigo"
+                    aria-describedby="helpId"
+                    placeholder="Codigo"
+                />
+                
+            </div>
+            
+        
+        <div class="row">
+            <div class="col">
+                <div class="mb-3">
+                    <label for="apertura" class="form-label">Apertura</label>
+                    <input
+                        formControlName="apertura"
+                        type="date"
+                        class="form-control"
+                        name="apertura"
+                        id="apertura"
+                        aria-describedby="helpId"
+                        placeholder=""
+                    />
+                </div>
+            </div>
+            <div class="col">
+                <div class="mb-3">
+                    <label for="vencimiento" class="form-label">Vencimiento</label>
+                    <input
+                        formControlName="vencimiento"
+                        type="date"
+                        class="form-control"
+                        name="vencimiento"
+                        id="vencimiento"
+                        aria-describedby="helpId"
+                        placeholder=""
+                    />
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-md">
+                    <div class="mb-3">
+                        <label for="materia" class="form-label">Materia</label>
+                        <select
+                        formControlName="id_materia"
+                        class="form-select form-select-sm"
+                            name="materia"
+                            id="materia"
+                        >
+                            <option>Seleccione una Opcion</option>
+                            @for (item of this.materias; track $index) 
+                            {
+                                <option value="{{item.codigo}}"> {{item.nombre}} </option>
+
+                            }
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md">
+
+                    <div class="mb-3">
+                        <label for="tipo_actividad" class="form-label">Tipo Actividade</label>
+                        <select
+                        formControlName="id_tipo_actividad"
+                        class="form-select form-select-sm"
+                            name="tipo_actividad"
+                            id="tipo_actividad"
+                        >
+                            <option value="0" selected>Seleccione una Opcion</option>
+                            @for (item of this.tipo_actividad; track $index) 
+                            {
+                                <option value="{{item.codigo}}"> {{item.nombre}} </option>
+
+                            }
+                        </select>
+                    </div>
+                </div>
+            </div>
+            
+
+            
+            
+
+            <div class="mb-3">
+                <label for="descripcion" class="form-label">Descripción</label>
+                        
+                        <textarea formControlName="descripcion" class="form-control" name="descripcion" id="descripcion" rows="3"></textarea>
+            </div>
+            
+            <div class="mb-3">
+                <label for="descripcion" class="form-label">Comentario</label>
+                <textarea formControlName="comentario" class="form-control" name="descripcion" id="descripcion" rows="2"></textarea>
+            </div>
+            
+        </div>
+        
+        <button
+            type="submit"
+            class="btn btn-primary"
+            (click)="enviar()"
+        >
+            Crear
+        </button>
+        
+        <a
+            name=""
+            id=""
+            class="btn btn-danger"
+            routerLink="/actividad/listar-actividades"
+            role="button"
+            >Cancelar</a
+        >
+        
+    </form>
+        
+    </div>
+</div>

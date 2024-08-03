@@ -1,4 +1,6 @@
 export interface Materia {
-    codgio:number;
+    codigo:number;
     nombre:string;
 }
+
+

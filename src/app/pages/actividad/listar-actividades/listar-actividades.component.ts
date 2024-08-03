@@ -25,7 +25,9 @@ export class ListarActividadesComponent {
   eliminar(codigo: number) {
       this.service.delete(codigo).subscribe(()=>{
         
-        this.getData() 
+        this.getData();
+        alert('Registro Eliminado')
+
       })
   }
 

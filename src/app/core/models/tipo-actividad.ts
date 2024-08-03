@@ -1,4 +1,4 @@
 export interface TipoActividad {
-    codgio:number;
+    codigo:number;
     nombre:string;
 }

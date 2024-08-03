@@ -1,1 +1,30 @@
-<p>crear-tipo-actividad works!</p>
+<form action="" [formGroup]="formulario" (submit)="enviar()">
+    <div class="mb-3">
+        <label for="" class="form-label">Nombre</label>
+        <input
+            formControlName="nombre"
+            type="text"
+            class="form-control"
+            name=""
+            id=""
+            aria-describedby="helpId"
+            placeholder="Nombre"
+        />
+        
+    </div>
+    
+    <button
+        type="submit"
+        class="btn btn-primary"
+    >
+        Crear
+    </button>
+
+    <a
+        class="btn btn-danger"
+        routerLink="/materia/listar-materias"
+        role="button"
+        >Cancelar</a
+    >
+    
+</form>

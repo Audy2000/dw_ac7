@@ -1,1 +1,57 @@
-<p>listar-materias works!</p>
+<a
+    name=""
+    id=""
+    class="btn btn-primary"
+    routerLink="/materia/crear-materia"
+    role="button"
+    >Crear Materia</a
+>
+
+<div
+    class="table-responsive-md"
+>
+    <table
+        class="table table-striped table-hover table-bordered table-primary align-middle"
+    >
+        <thead class="table-light">
+            <caption>
+                Materias
+            </caption>
+            <tr>
+                <th>Codigo</th>
+                <th>Nombre</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody class="table-group-divider">
+            @for (item of this.materias; track $index) 
+            {
+                <tr>
+                    <td scope="row"> {{item.codigo}} </td>
+                    <td> {{item.nombre}} </td>
+                    <td>
+                        <a
+                            class="btn btn-warning"
+                            routerLink="/materia/editar-materia/{{item.codigo}}"
+                            role="button"
+                            >Editar</a
+                        >
+                        <button
+                            type="button"
+                            class="btn btn-danger"
+                            (click)="this.elimiar(item.codigo)"
+                        >
+                            Eliminar    
+                        </button>
+                        
+                        
+                    </td>
+                </tr>
+            }
+            
+        </tbody>
+        <tfoot>
+            
+        </tfoot>
+    </table>
+</div>
